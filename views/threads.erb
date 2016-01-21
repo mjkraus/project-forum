@@ -1,0 +1,33 @@
+<section>
+<div class = "thread">
+	<h1><%= @thread["topics_id"]%></h1>
+	<h1><%= @thread["title"]%></h1>
+	<p><%= @thread["msg"]%><p>
+	<p><%= @thread["username"]%></p>
+	<p><%= @thread["votes"]%><p>
+</div>
+</section>
+
+<section>
+	<form class="comment" action="/threads/<%= @thread_id %>" method="post">
+		<div class="input-row">
+			<label for="msg">Msg: </label>
+			<input type="text" name="msg" />
+		</div>
+		<div class="input-row">
+			<label for="username">Username: </label>
+			<input type="text" name="username" />
+		</div>
+
+		<div class="input-row">
+		<input type="submit" value="Submit" />
+		</div>	
+	</form>
+</section>	
+
+<section class="comments">
+<% @all_comments.each do |comment| %>
+	<p><%= comment["msg"] %></p>
+	<p><%= comment["username"] %></p>
+<%end%>
+</section>

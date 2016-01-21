@@ -3,6 +3,9 @@ DROP TABLE IF EXISTS topics CASCADE;
 DROP TABLE IF EXISTS threads CASCADE;
 DROP TABLE IF EXISTS comments CASCADE;
 
+
+
+
 -- documentation for psql tables http://www.postgresql.org/docs/9.3/static/ddl-constraints.html
 
 CREATE TABLE topics(
@@ -23,8 +26,10 @@ CREATE TABLE comments(
  id 		SERIAL PRIMARY KEY,
  msg 		TEXT NOT NULL,
  username 	VARCHAR,
- threads_id INTEGER REFERENCES threads(id) 
+ date_created VARCHAR,
+ thread_id  INTEGER REFERENCES threads(id)
 );
+
 
 -- psql -d project_forum_test -f schema.sql
 
@@ -52,11 +57,11 @@ VALUES
 
 -- create comments
 INSERT INTO comments
-  (msg, username, threads_id)
+  (msg, username, date_created)
 VALUES
-  ('cool','Tanner', 1),
-  ('loves it!','Pam', 1),
-  ('Sweet!', 'Coco', 3);
+  ('cool','Tanner', 10),
+  ('loves it!','Pam', 11),
+  ('Sweet!', 'Coco', 4);
 
 
 

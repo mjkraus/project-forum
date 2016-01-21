@@ -1,3 +1,4 @@
+# parse
 require 'pg'
 require 'pry'
 # gem 'bcrypt'
@@ -32,6 +33,32 @@ module Forum
         erb :index
     end
 
+    get '/threads/:thread_id' do
+        db = database_connection
+        @thread_id = params[:thread_id].to_i
+        @thread = db.exec("SELECT * FROM threads WHERE id = #{@thread_id}").first
+        @all_comments=db.exec_params("SELECT * FROM comments WHERE thread_id = $1",[@thread_id]).to_a
+
+        erb :threads
+    end
+
+    post '/threads/:thread_id' do
+        @thread_id = params[:thread_id].to_i
+        msg = params["msg"]
+        username = params["username"]
+
+        db = database_connection
+        
+        db.exec_params(
+              "INSERT INTO comments (thread_id, msg, username) VALUES ($1, $2, $3)",
+              [@thread_id, msg, username])
+
+        # @all_comments=db.exec_params("SELECT * FROM comments WHERE thread_id = $1",[@thread_id]).to_a
+
+
+        redirect "/threads/#{@thread_id}"
+    end  
+
     def database_connection
       PG.connect(dbname: 'project_forum_test')
     end
@@ -40,5 +67,3 @@ module Forum
 
 	end
 end
-
-# title, msg, username, votes, topics_id
