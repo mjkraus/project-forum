@@ -52,8 +52,8 @@ INSERT INTO threads
   (title, msg, username, votes, topics_id)
 VALUES
   ('Hello','Mixtape schlitz mustache synth intelligentsia microdosing scenester marfa, sriracha cray bicycle rights ennui chartreuse cliche. Fashion axe wayfarers everyday carry celiac, helvetica you probably haven''t heard of them flexitarian.', 'Michael', 0, 4),
-  ('Goodbye','Neutra actually williamsburg, truffaut normcore beard viral semiotics umami try-hard DIY.', 'Hannah', 5, 8),
-  ('Something','Neutra actually williamsburg, truffaut normcore beard viral semiotics umami try-hard DIY.', 'Molly', 10, 5);
+  ('Goodbye','Neutra actually williamsburg, truffaut normcore beard viral semiotics umami try-hard DIY.', 'Hannah', 0, 8),
+  ('Something','Neutra actually williamsburg, truffaut normcore beard viral semiotics umami try-hard DIY.', 'Molly', 0, 5);
 
 -- create comments
 INSERT INTO comments

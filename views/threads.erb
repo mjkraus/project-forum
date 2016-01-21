@@ -1,4 +1,6 @@
 <section>
+
+
 <div class = "thread">
 	<h1><%= @thread["topics_id"]%></h1>
 	<h1><%= @thread["title"]%></h1>
@@ -20,10 +22,20 @@
 		</div>
 
 		<div class="input-row">
-		<input type="submit" value="Submit" />
+		<input type="submit" value="submit" />
 		</div>	
 	</form>
 </section>	
+
+<section>
+<form class="vote" action="/threads/<%= @thread_id %>" method="post">
+	<label for="up_votes">up_votes</label>
+	<input type="hidden" name="_method" value="put"/>
+<!-- 	<input type="radio" name="up_votes"/> -->
+	<input type="submit" name="up_votes" value="YES!" />
+	<input type="submit" name="up_votes" value="NO!" />
+</form>
+</section>
 
 <section class="comments">
 <% @all_comments.each do |comment| %>
