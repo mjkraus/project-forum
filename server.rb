@@ -9,15 +9,15 @@ module Forum
 
   set :method_override, true
 
-  	get '/' do
+  	get '/create' do
       db = database_connection
       # put this variable in get so the variable can be accessed in our drop down menu
       @topics = db.exec("SELECT * FROM topics").to_a
 
-      erb :index
+      erb :create
     end
 
-   post '/' do
+   post '/create' do
         title = params["title"]
         msg = params["msg"]
         username = params["username"]
@@ -31,7 +31,7 @@ module Forum
 
         @new_thread_submitted = true
 
-        erb :index
+        erb :create
     end
 
     get '/threads/:thread_id' do

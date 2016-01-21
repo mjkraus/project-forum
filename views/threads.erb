@@ -30,8 +30,7 @@
 <section>
 <form class="vote" action="/threads/<%= @thread_id %>" method="post">
 	<label for="up_votes">up_votes</label>
-	<input type="hidden" name="_method" value="put"/>
-<!-- 	<input type="radio" name="up_votes"/> -->
+	<input type="hidden" name="_method" value="put"/>  
 	<input type="submit" name="up_votes" value="YES!" />
 	<input type="submit" name="up_votes" value="NO!" />
 </form>
