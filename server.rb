@@ -9,6 +9,14 @@ module Forum
 
   set :method_override, true
 
+    get '/' do
+      db = database_connection
+
+      @popularity = db.exec("SELECT threads.title, threads.votes, topics.name FROM threads INNER JOIN topics ON threads.topics_id=topics.id ORDER BY votes DESC LIMIT 5").to_a
+
+      erb :index
+    end
+
   	get '/create' do
       db = database_connection
       # put this variable in get so the variable can be accessed in our drop down menu

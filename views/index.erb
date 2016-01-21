@@ -1,0 +1,8 @@
+<h1>Popularity</h1>
+<% @popularity.each do |popular| %>
+	<div>
+	<h1><%= "#{popular['name']}" %></h1>
+	<p><%= "#{popular['title']}" %></p>
+	<p><%= "#{popular['votes']}" %></p>
+	</div>
+<%end%>
