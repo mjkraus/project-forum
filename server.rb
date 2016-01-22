@@ -78,6 +78,11 @@ module Forum
           @error = "Invalid Username"
           erb :login
         end
+    end
+
+    get '/logout' do
+      session["user_id"] = false
+      redirect "/"
     end    
 
     get '/' do
@@ -90,10 +95,13 @@ module Forum
 
   	get '/create' do
       db = database_connection
+      if session["user_id"]
       # put this variable in get so the variable can be accessed in our drop down menu
       @topics = db.exec("SELECT * FROM topics").to_a
-
       erb :create
+      else
+        redirect "/login"
+      end
     end
 
    post '/create' do
@@ -122,7 +130,7 @@ module Forum
         thread_msg = @thread["msg"]
         @rendered_thread_msg = markdown.render(thread_msg)
         erb :threads
-    end
+    end  
 
     post '/threads/:thread_id' do
         @thread_id = params[:thread_id].to_i
