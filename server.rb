@@ -1,13 +1,84 @@
 # parse
 require 'pg'
 require 'pry'
-# gem 'bcrypt'
-# gem 'redcarpet'
+require 'bcrypt'
+require 'redcarpet'
 
 module Forum
   class Server < Sinatra::Base
 
-  set :method_override, true
+  enable :sessions
+
+  set :method_override, true    
+
+  def markdown 
+        @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+  end
+
+  def current_user
+    # ||= is a memoizer. Research further. 
+    # saves the user id in the session = keeps the user id until it user ends the session 
+    db = database_connection
+
+    if session["user_id"]
+      @current_user ||= db.exec_params("SELECT * FROM users WHERE id = $1", [session["user_id"]]).first
+    else
+      # THE USER IS NOT LOGGED IN
+      {}
+    end    
+  end
+
+  # get '/' do
+  #   redirect "/signup"
+  # end
+
+  get "/signup" do
+      erb :signup
+  end  
+
+  post "/signup" do
+      db = database_connection
+      login_name = params[:login_name]
+      encrypted_password = BCrypt::Password.create(params[:login_password])
+
+      # WHERE SHOULD I PUT THE COMPARISON FOR password_digest? In the login? 
+      # and in the creation so it doesnt duplicate it?
+
+      # WHAT IS RETURNING ID?
+      users = db.exec_params("INSERT INTO users (login_name, login_password_digest) VALUES ($1, $2) RETURNING id", [login_name, encrypted_password]);
+      
+      #.first is techincally [0]
+      #we are tagging the user with their ID. NOW they are logged in.
+      #log out by dropping the session OR setting user_id to nothing
+      session["user_id"]=users.first["id"]
+      # might need a .to_i
+
+      erb :signup_success
+    end
+
+    get '/login' do
+      erb :login
+    end
+
+    post '/login' do
+      db = database_connection
+      login_name = params[:login_name]
+      login_password = params[:login_password]
+
+      @user = db.exec_params("SELECT * FROM users WHERE login_name = $1", [login_name]).first
+        if @user
+          if BCrypt::Password.new(@user["login_password_digest"]) == login_password
+            session["user_id"] = @user["id"]
+            redirect "/"
+          else
+            @error = "Invalid Password"
+            erb :login
+          end
+        else
+          @error = "Invalid Username"
+          erb :login
+        end
+    end    
 
     get '/' do
       db = database_connection
@@ -28,7 +99,8 @@ module Forum
    post '/create' do
         title = params["title"]
         msg = params["msg"]
-        username = params["username"]
+        # username = session["user_id"] 
+        username = current_user['login_name'] #IS THIS OK? 
         topics_id = params["topics_id"].to_i
 
         db = database_connection
@@ -47,14 +119,15 @@ module Forum
         @thread_id = params[:thread_id].to_i
         @thread = db.exec("SELECT * FROM threads WHERE id = #{@thread_id}").first
         @all_comments=db.exec_params("SELECT * FROM comments WHERE thread_id = $1",[@thread_id]).to_a
-
+        thread_msg = @thread["msg"]
+        @rendered_thread_msg = markdown.render(thread_msg)
         erb :threads
     end
 
     post '/threads/:thread_id' do
         @thread_id = params[:thread_id].to_i
         msg = params["msg"]
-        username = params["username"]
+        username = current_user['login_name']
 
         db = database_connection
         

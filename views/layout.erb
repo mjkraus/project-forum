@@ -4,9 +4,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Forum for All</title>
-	<link rel="stylesheet" href="">
+	<link href="/css/style.css" rel="stylesheet" type="text/css">
+  	<link href="/css/normalize.css" rel="stylesheet" type="text/css">
+  	<link href="/css/skeleton.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+  <pre>YOU ARE LOGGED IN AS <%= current_user['login_name'] %></pre>
+  < 
 
 <%=yield%>	
 </body>

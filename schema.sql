@@ -1,4 +1,5 @@
 -- remove any records and start the id sequence back to 1
+DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS topics CASCADE;
 DROP TABLE IF EXISTS threads CASCADE;
 DROP TABLE IF EXISTS comments CASCADE;
@@ -7,6 +8,11 @@ DROP TABLE IF EXISTS comments CASCADE;
 
 
 -- documentation for psql tables http://www.postgresql.org/docs/9.3/static/ddl-constraints.html
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY, 
+  login_name VARCHAR,
+  login_password_digest VARCHAR
+);
 
 CREATE TABLE topics(
  id 		SERIAL PRIMARY KEY,
@@ -17,7 +23,8 @@ CREATE TABLE threads(
  id 		SERIAL PRIMARY KEY,
  title 		VARCHAR NOT NULL,
  msg 		TEXT NOT NULL,
- username 	VARCHAR,
+ -- user_id 	VARCHAR REFERENCES users(id),
+ username VARCHAR,
  votes 		INTEGER,
  topics_id 	INTEGER REFERENCES topics(id)
 );
@@ -25,7 +32,8 @@ CREATE TABLE threads(
 CREATE TABLE comments(
  id 		SERIAL PRIMARY KEY,
  msg 		TEXT NOT NULL,
- username 	VARCHAR,
+ -- user_id 	VARCHAR REFERENCES users(id),
+ username VARCHAR,
  date_created VARCHAR,
  thread_id  INTEGER REFERENCES threads(id)
 );
@@ -51,9 +59,9 @@ VALUES
 INSERT INTO threads
   (title, msg, username, votes, topics_id)
 VALUES
-  ('Hello','Mixtape schlitz mustache synth intelligentsia microdosing scenester marfa, sriracha cray bicycle rights ennui chartreuse cliche. Fashion axe wayfarers everyday carry celiac, helvetica you probably haven''t heard of them flexitarian.', 'Michael', 0, 4),
-  ('Goodbye','Neutra actually williamsburg, truffaut normcore beard viral semiotics umami try-hard DIY.', 'Hannah', 0, 8),
-  ('Something','Neutra actually williamsburg, truffaut normcore beard viral semiotics umami try-hard DIY.', 'Molly', 0, 5);
+  ('Hello','### An h3 header ### * carrots * celery * lentils', 'Michael', 0, 4),
+  ('Goodbye','*bongos*', 'Hannah', 0, 8),
+  ('Something','*bongos*', 'Molly', 0, 5);
 
 -- create comments
 INSERT INTO comments
