@@ -3,6 +3,7 @@ require 'pg'
 require 'pry'
 require 'bcrypt'
 require 'redcarpet'
+require 'sinatra/cookies'
 
 module Forum
   class Server < Sinatra::Base
@@ -41,12 +42,14 @@ module Forum
       login_name = params[:login_name]
       encrypted_password = BCrypt::Password.create(params[:login_password])
 
-      # WHERE SHOULD I PUT THE COMPARISON FOR password_digest? In the login? 
-      # and in the creation so it doesnt duplicate it?
 
       # WHAT IS RETURNING ID?
+
+      # if db.exec("SELECT * from users WHERE login_name = $1", [login_name]).to_a ==[] means there is no result
       users = db.exec_params("INSERT INTO users (login_name, login_password_digest) VALUES ($1, $2) RETURNING id", [login_name, encrypted_password]);
-      
+      # else
+      #say that it already exists.
+
       #.first is techincally [0]
       #we are tagging the user with their ID. NOW they are logged in.
       #log out by dropping the session OR setting user_id to nothing
@@ -69,7 +72,9 @@ module Forum
         if @user
           if BCrypt::Password.new(@user["login_password_digest"]) == login_password
             session["user_id"] = @user["id"]
-            redirect "/"
+            # session[:return_to] ||= request.referer
+            # binding.pry
+            redirect session[:return_to]
           else
             @error = "Invalid Password"
             erb :login
@@ -100,6 +105,7 @@ module Forum
       @topics = db.exec("SELECT * FROM topics").to_a
       erb :create
       else
+        session[:redirect_to] = "/create"
         redirect "/login"
       end
     end
@@ -117,7 +123,7 @@ module Forum
               "INSERT INTO threads (title, msg, username,topics_id, votes) VALUES ($1, $2, $3, $4, $5)",
               [title, msg, username,topics_id,0])
 
-        @new_thread_submitted = true
+        # @new_thread_submitted = true need to add an if statement for thread creation
 
         erb :create
     end

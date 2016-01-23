@@ -1,0 +1,40 @@
+h1{
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+}
+h2{
+	font-family: 'Cabin Condensed', sans-serif;
+	font-weight: 400;
+}
+p{
+	font-family: 'Cabin Condensed', sans-serif;
+}
+div.header{
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+/*div.greetings{
+	float: right;
+}*/
+.createapost{
+	float:right;
+}
+.indexsquare2{
+	background: yellow;
+}
+
+.indexsquare3{
+	background: blue;
+}
+
+/*div.row{
+	text-align: center;
+}*/
+/*span{
+	background-color: blue;
+}*/
+div.four.columns{
+	min-height: 300px;
+	border: 5px solid green;
+	text-align: center;
+}

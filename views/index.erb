@@ -1,8 +1,31 @@
-<h1>Popularity</h1>
-<% @popularity.each do |popular| %>
-	<div>
-	<h1><%= "#{popular['name']}" %></h1>
-	<p><%= "#{popular['title']}" %></p>
-	<p><%= "#{popular['votes']}" %></p>
+<h1>POPULARITY</h1>
+<% @popularity.each_slice(3) do |popular1,popular2,popular3| %>
+	<div class="row">
+
+		<div class="four columns">
+		<h2><%= "#{popular1['name']}" %></h2>
+		<p><%= "#{popular1['title']}" %></p>
+		<span class="square"><%= "#{popular1['votes']}" %></span>
+		</div>
+
+		<div class="four columns">
+		<div class="indexsquare2">
+			<% if popular2 %>
+		<h2><%= "#{popular2['name']}" %></h2>
+		<p><%= "#{popular2['title']}" %></p>
+		<p><%= "#{popular2['votes']}" %></p>
+		<% end %>
+		</div>
+		</div>
+
+		<div class="four columns">
+		<div class="indexsquare3">
+			<% if popular3 %>
+		<h2><%= "#{popular3['name']}" %></h2>
+		<p><%= "#{popular3['title']}" %></p>
+		<p><%= "#{popular3['votes']}" %></p>
+		<% end %>
+		</div>
+		</div>
 	</div>
 <%end%>

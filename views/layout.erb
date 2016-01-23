@@ -4,15 +4,29 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Forum for All</title>
+	<link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:400,600' rel='stylesheet' type='text/css'>
 	<link href="/css/style.css" rel="stylesheet" type="text/css">
   	<link href="/css/normalize.css" rel="stylesheet" type="text/css">
   	<link href="/css/skeleton.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <a href="/login">Login</a> <a href="/logout">Logout</a>
-  <pre>YOU ARE LOGGED IN AS <%= current_user['login_name'] %></pre>
-  <a href="/create">Create a post</a>
+<div class="header">
+<div class="row">
+<div class="offset-by-three six columns"><h1>FRINGLY</h1></div>
+    <div class="three columns">How is your fringe? <strong><%=current_user['login_name']%></strong></div>
+</div>
+</div>
 
-<%=yield%>	
+	<div class="row">
+			<div class="five columns">
+			<a href="/login">Login</a><a href="/logout">Logout</a>
+			</div>	
+		</div>
+	</div>
+	<div class="createapost">
+	<a href="/create">Create a post</a>	
+	</div>
+<%=yield%>
 </body>
 </html>
