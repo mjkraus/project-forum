@@ -15,6 +15,15 @@ p{
 	margin: 0;
 /*	font-family: 'Cabin Condensed', sans-serif;*/
 }
+.button.button-primary, button.button-primary, 
+input[type="submit"].button-primary, input[type="reset"]
+.button-primary, input[type="button"].button-primary{
+	background-color: black;
+	color: white;
+	border-color: black;
+	font-family: 'Cabin Condensed', sans-serif;
+	text-align: center;
+} 
 
 a.button{
 	background-color: black;

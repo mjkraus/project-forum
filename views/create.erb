@@ -1,37 +1,38 @@
-<div class="thread_creation_content">
-<h1>Make A Thread</h1>
+<div class="container">
+<h1>Make A Post</h1>
 <% if @new_thread_submitted %>
 <!-- should redirect once the thread is submitted -->
-	<p class="new_thread_submitted">Thank you for posting a new thread!</p>
+	<p class="new_thread_submitted">Thank you for creating a new post!</p>
 <% else %>
-<form class="thread" actions="/create" method="post">
-	<div class="input-row">
-		<label for="topics_id">Topic:</label>
-			<select name="topics_id">
+<form actions="/create" method="post">
+	<div class="row">
+		<div class="six columns">
+		<label for="topics_id">Topic</label>
+			<select class="u-full-width" name="topics_id">
 			<% @topics.each do |topic| %>
 			<option value="<%= "#{topic['id']}" %>"><%= "#{topic['name']}" %></option>
 			<%end%>	
-			</select>
+		</select>
 	</div>
 		
-	<div class="input-row">
-		<label for="title">Title: </label>
-		<input type="text" name="title" />
+	<div class="six columns">
+		<label for="title">Title</label>
+		<input class="u-full-width" type="text" placeholder="Title for your post"name="title" />
+	</div>
 	</div>
 
-	<div class="input-row">
-		<label for="msg">Msg: </label>
-		<input type="text" name="msg" />
-	</div>
+		<label for="msg">Message</label>
+		<textarea class="u-full-width" placeholder="Write your post here" name="msg"></textarea>
 
-	<div class="input-row">
-		<label for="username">Username: </label>
+
+	
+		<label for="username"></label>
 		<input type="hidden" name="username" />
-	</div>
 
-	<div class="input-row">
-	<input type="submit" value="Submit" />
-	</div>	
+
+
+	<input class="button-primary" type="submit" value="Submit" />
+	<!-- style="background-color: black; color: white;font-family: 'Cabin Condensed', sans-serif;text-align: center;" -->
 
 </form>
 <%end%>
