@@ -121,3 +121,30 @@ form.vote{
 	margin: 10px;
 	min-height: 50px;
 }
+/*---topics.erb displaying the threads of those topics---*/
+.four.columns.threads_of_topics img{
+	position: relative;
+	height: 30px;
+
+}
+.row.threads_of_topics{
+	margin-bottom: 10px;
+	min-height: 30px;
+	border: 1px solid #eee;
+	background-color: #f4f4f4;
+	font-family: "Adobe Garamond Pro", Garamond, Baskerville, serif;
+	font-size: 18px;
+	font-style: italic;
+}
+
+.eight.columns.threads_of_topics{
+	text-align: center;
+	background-color: #f4f4f4;
+}
+.eight.columns.threads_of_topics a{
+	text-decoration: none;
+	color: black;
+
+}
+
+

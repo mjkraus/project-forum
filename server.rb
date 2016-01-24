@@ -167,7 +167,15 @@ module Forum
         end
 
         redirect "/threads/#{@thread_id}"
-    end    
+    end
+
+    get '/topics/:topic_id' do
+        db = database_connection
+        @topic_id = params[:topic_id].to_i
+        @topic_headline = db.exec("SELECT * FROM topics WHERE id = #{@topic_id}").first
+        @topic = db.exec_params("SELECT topics.name, threads.title, threads.username, threads.votes, threads.id FROM topics INNER JOIN threads ON topics.id = threads.topics_id WHERE topics.id = #{@topic_id}").to_a
+        erb :topics
+    end     
 
     def database_connection
       PG.connect(dbname: 'project_forum_test')

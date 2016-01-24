@@ -1,14 +1,17 @@
 <!-- takes you to a specific topic and lists all the threads in that topic -->
-<div class = "container">
-  <div class="row">
-    <div class="twelve columns">
-	<h1>this is the title<%= @thread["title"]%></h1>
+<div class="container">
+<h1><%= @topic_headline["name"]%></h1>
+<div class="display_threads_of_topics">
+	  <% @topic.each do |t|%>
+	  <div class="row threads_of_topics">
+	  <div class="four columns threads_of_topics">
+	  <img src="../images/noun_130904.png"/> <%= "#{t['votes']} likes" %>
+	  </div>
+	  <div class="eight columns threads_of_topics">
+	  <a href="/threads/<%="#{t['id']}"%>"><%="#{t['title']}"%></a>
+	  </div>
+	  </div>
+	  <% end %>
 	</div>
-	<div class="twelve columns">
-	<p><%= @rendered_thread_msg %></p>
-	</div>
-  </div>
+</div>	
 
-	<p>this is the username<%= @thread["username"]%></p>
-	<p>this is the votes<%= @thread["votes"]%><p>
-</div>
