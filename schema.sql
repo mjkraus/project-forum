@@ -57,10 +57,10 @@ VALUES
 INSERT INTO threads
   (title, msg, username, votes, topics_id)
 VALUES
-  ('Need your help!','#HELLO#', 'sarah', 5, 4),
+  ('Need your help!','#HELLO#', 'sarah', 1000, 4),
   ('These are so perfect','*bongos*', 'hannah', 20, 7),
   ('Any suggestions?','*bongos*', 'molly', 10, 5),
-  ('Need your help!','### An h3 header ### * carrots * celery * lentils', 'tanner', 40, 1),
+  ('Need your help!','### An h3 header ### * carrots * celery * lentils', 'tanner', 100, 1),
   ('These are so perfect','*bongos*', 'sam', 3, 3),
   ('Any suggestions?','*bongos*', 'jessica', 25, 6),
   ('Need your help!','### An h3 header ### * carrots * celery * lentils', 'kayla', 33, 2),

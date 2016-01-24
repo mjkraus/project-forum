@@ -55,63 +55,12 @@ ul.main_navigation a {
   display: inline-block;
 }
 
-/*.clearfix{
-  content: "";
-  display: table;
-  clear: both;
-}*/
-
-.votes_main{
-    width: 40px;
-    height: 40px;
-    background-image: url(../images/small_heart.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    border: 1px solid red;
-    color: white;
-    position: relative;
-    top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.votes_main img{
+	position: relative;
+	height: 30px;
 }
 
-.votes_main p{
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	position: absolute;
 
-}
-
-/*a.logo { display: block;
-  background: url(../images/noun_125556_cc.png) 0 0 no-repeat;
-  height: 76px;
-  width: 60px;
-  float: left; 
-}*/
-
-
-/*NEED SOME TYPE OF STYLING FOR HOVERING*/
-/*.createapost{
-	float:right;
-}
-.indexsquare2{
-	background: yellow;
-}
-
-.indexsquare3{
-	background: blue;
-}*/
-
-/*div.row{
-	text-align: center;
-}*/
-/*span{
-	background-color: blue;
-}*/
-/*div.row.popular{
-	margin: 8px;
-}*/
 div.one-third.column.popular{
 	border: 1px solid #eee;
 	text-align: center;
