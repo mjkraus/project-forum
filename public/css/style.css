@@ -4,6 +4,7 @@ h1{
 }
 h2{
 	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
 }
 p{
 	font-family: 'Cabin Condensed', sans-serif;
@@ -41,9 +42,6 @@ ul.main_navigation a {
   display: inline-block;
 }
 
-/*div.container.headline{
-	float: left;
-}*/
 
 /*NEED SOME TYPE OF STYLING FOR HOVERING*/
 .createapost{

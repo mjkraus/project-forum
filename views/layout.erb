@@ -27,19 +27,11 @@
   <div class="row">
 	<div class="offset-by-one ten columns">
 	<ul class="main_navigation">
-	  <% @topic_nav_bar.each do |topic| %>
+	  <% make_navigation.each do |topic|%>
 	  <li><a href="/topic/<%="#{topic['id']}"%>"><%="#{topic['name']}"%></a></li>
 	  <% end %>
 	</ul>
 	</div>	
-  </div>
-</div>
-
-<div class="container headline">
-  <div class="row">
-    <div class="eight columns">
-    <h2>Most Popular Posts</h2>
-    </div>
   </div>
 </div>
 

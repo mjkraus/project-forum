@@ -16,6 +16,11 @@ module Forum
         @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
+  def make_navigation
+    db = database_connection
+    @make_navigation ||= db.exec("SELECT * FROM topics").to_a
+  end
+
   def current_user
     # ||= is a memoizer. Research further. 
     # saves the user id in the session = keeps the user id until it user ends the session 
@@ -94,8 +99,6 @@ module Forum
       db = database_connection
 
       @popularity = db.exec("SELECT threads.title, threads.votes, topics.name FROM threads INNER JOIN topics ON threads.topics_id=topics.id ORDER BY votes DESC LIMIT 9").to_a
-      
-      @topic_nav_bar = db.exec("SELECT * FROM topics").to_a
       
       erb :index
     end
