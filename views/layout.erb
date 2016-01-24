@@ -24,7 +24,11 @@
     </div>
     <div class="row">
     <div class="four columns">
-    	<a class='button' href="/login">Login</a> <a class='button' href="/logout">Logout</a>
+    <%if current_user == {} %>
+    	<a class='button' href="/login">Login</a> <a class='button' href="/signup">Sign Up</a>
+    <%else%>  
+      <a class='button' href="/logout">Logout</a>
+    <%end%>
      </div> 
     </div>
     </div>
