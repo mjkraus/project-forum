@@ -98,7 +98,7 @@ module Forum
     get '/' do
       db = database_connection
 
-      @popularity = db.exec("SELECT threads.title, threads.votes, topics.name FROM threads INNER JOIN topics ON threads.topics_id=topics.id ORDER BY votes DESC LIMIT 9").to_a
+      @popularity = db.exec("SELECT threads.title, threads.votes, threads.username, threads.id, topics.name FROM threads INNER JOIN topics ON threads.topics_id=topics.id ORDER BY votes DESC LIMIT 9").to_a
       
       erb :index
     end

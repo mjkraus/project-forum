@@ -2,12 +2,25 @@ h1{
 	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
 }
+a h1{
+	text-decoration: none;
+}
 h2{
 	font-family: 'Oswald', sans-serif;
 	text-transform: uppercase;
 }
 p{
+	font-family: "Adobe Garamond Pro", Garamond, Baskerville, serif;
+	font-size: 18px;
+	font-style: italic;
+	margin: 0;
+/*	font-family: 'Cabin Condensed', sans-serif;*/
+}
+a.button{
+	background-color: black;
+	color: white;
 	font-family: 'Cabin Condensed', sans-serif;
+
 }
 div.header{
 	text-align: center;
@@ -44,7 +57,7 @@ ul.main_navigation a {
 
 
 /*NEED SOME TYPE OF STYLING FOR HOVERING*/
-.createapost{
+/*.createapost{
 	float:right;
 }
 .indexsquare2{
@@ -53,7 +66,7 @@ ul.main_navigation a {
 
 .indexsquare3{
 	background: blue;
-}
+}*/
 
 /*div.row{
 	text-align: center;
@@ -61,8 +74,16 @@ ul.main_navigation a {
 /*span{
 	background-color: blue;
 }*/
-div.four.columns{
-	min-height: 300px;
-	border: 5px solid green;
+/*div.row.popular{
+	margin: 8px;
+}*/
+div.one-third.column.popular{
+	border: 1px solid #eee;
 	text-align: center;
+	margin-bottom: 20px;
+	background-color: #f4f4f4;
+}
+div.one-third.column.popular a{
+  text-decoration: none;
+  color: black;
 }

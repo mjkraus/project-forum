@@ -15,9 +15,9 @@
 <div class="header">
 <div class="container">
   <div class="row">
-    <div class="offset-by-three six columns"><h1>FRINGLY</h1></div>
+    <div class="offset-by-three six columns"><a href='/'><h1>FRINGLY</h1></a></div>
     <div class="three columns">How is your fringe today? <strong><%=current_user['login_name']%></strong>
-    	<a href="/login">Login</a> <a href="/logout">Logout</a>
+    	<a class='button' href="/login">Login</a> <a class='button' href="/logout">Logout</a>
     </div>
   </div>
 </div>
@@ -40,8 +40,11 @@
     <%=yield%>
   </div>
 <div class="four columns">
-<a href="/create" class="createapost" >Create a post</a>	
+<!-- Pencil by Tony Gines from the Noun Project -->
+<!-- Heart by libberry from the Noun Project -->
+<a class="button" href="/create">Create a post</a>	
 </div>
 </div>
+<img src="../images/noun_130904.png" alt=""/>
 </body>
 </html>

@@ -1,4 +1,5 @@
 
+<!--  <div class="container" -->
   <div class="row">
     <div class="eight columns">
     <span><h2>Most Popular Posts</h2></span>
@@ -6,32 +7,38 @@
   </div>
 
 <% @popularity.each_slice(3) do |popular1,popular2,popular3| %>
-	<div class="row">
+<!-- <div class ="container"> -->
+	<div class="row popular">
 
-		<div class="four columns">
-		<h2><%= "#{popular1['name']}" %></h2>
-		<p><%= "#{popular1['title']}" %></p>
-		<span class="square"><%= "#{popular1['votes']}" %></span>
+<!-- 		<div class="four columns"> -->
+		<div class="one-third column popular">
+		<p><%= "#{popular1['name']}" %></p>
+		<a href="/threads/<%="#{popular1['id']}"%>"><%= "#{popular1['title']}" %></a>
+		<p><%= "#{popular1['username']}" %></p>
+		<p><%= "#{popular1['votes']}" %></p>
 		</div>
 
-		<div class="four columns">
-		<div class="indexsquare2">
+<!-- 		<div class="four columns"> -->
+		<div class="one-third column popular">
 			<% if popular2 %>
-		<h2><%= "#{popular2['name']}" %></h2>
-		<p><%= "#{popular2['title']}" %></p>
+		<p><%= "#{popular2['name']}" %></p>
+		<a href="/threads/<%="#{popular2['id']}"%>"><%= "#{popular2['title']}" %></a>
+		<p><%= "#{popular2['username']}" %></p>
 		<p><%= "#{popular2['votes']}" %></p>
 		<% end %>
 		</div>
-		</div>
 
-		<div class="four columns">
-		<div class="indexsquare3">
+<!-- 		<div class="four columns"> -->
+		<div class="one-third column popular">
 			<% if popular3 %>
-		<h2><%= "#{popular3['name']}" %></h2>
-		<p><%= "#{popular3['title']}" %></p>
+		<p><%= "#{popular3['name']}" %></p>
+		<a href="/threads/<%="#{popular3['id']}"%>"><%= "#{popular3['title']}" %></a>
+		<p><%= "#{popular3['username']}" %></p>
 		<p><%= "#{popular3['votes']}" %></p>
 		<% end %>
 		</div>
-		</div>
 	</div>
+<!-- 	</div> -->
 <%end%>
+<!-- </div> -->
+
