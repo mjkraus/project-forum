@@ -160,10 +160,10 @@ module Forum
 
         @up_votes = params["up_votes"]
 
-        if @up_votes == "YES!"
+        if @up_votes == "Love it!"
           db.exec_params("UPDATE threads SET votes = votes + 1 WHERE id = $1",[@thread_id])
-        elsif @up_votes == "NO!"
-          db.exec_params("UPDATE threads SET votes = votes - 1 WHERE id = $1",[@thread_id])    
+        # elsif @up_votes == "NO!"
+        #   db.exec_params("UPDATE threads SET votes = votes - 1 WHERE id = $1",[@thread_id])    
         end
 
         redirect "/threads/#{@thread_id}"

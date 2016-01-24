@@ -1,6 +1,51 @@
-<section>
+<!-- Displays individual threads and votes. Allows commenting and displays previous comments. -->
+<div class = "container">
+  <div class="row">
 
+    <div class="twelve columns threads_header">
+	<h2><%= @thread["title"]%></h2>
+	</div>
 
+	<div class="twelve columns threads_username">
+	<p><%= "posted by #{@thread["username"]}" %></p>
+	</div>
+
+	<div class="twelve columns threads_msg">
+	<p><%= @rendered_thread_msg %></p>
+	</div>
+
+	<form class="vote" action="/threads/<%= @thread_id %>" method="post">
+	<label for="up_votes"></label>
+	<input type="hidden" name="_method" value="put"/>  
+	<input class="button-primary" type="submit" name="up_votes" value="Love it!" />
+<!-- 	<input class="button-primary" type="submit" name="up_votes" value="NO!" /> -->
+	</form>	
+
+	<div class="twelve columns threads_votes">
+	<img src="../images/noun_130904.png"/> <%= "#{@thread['votes']} likes" %>
+	</div>
+
+  </div>
+
+	<form class="comment" action="/threads/<%= @thread_id %>" method="post">
+			<label for="msg">Comment</label>
+			<textarea class="u-full-width" placeholder="Write a comment..." name="msg"></textarea>
+
+			<label for="username"></label>
+			<input type="hidden" name="username" />
+
+	        <input class="button-primary" type="submit" value="submit" />
+	</form>
+
+<div class="comments_display">
+<% @all_comments.each do |comment| %>
+	<div class="twelve columns comments_display">
+	<p><strong><%= "#{comment["username"]}" %></strong> <%= " \"#{comment["msg"]}\"" %></p>
+	</div>
+<%end%>
+</div>
+<!-- 
+This is from my original layout for my threads.erb I might return to it inorder to display the topic that the thread is filed under.
 <div class = "thread">
 	<h1>this is the topic<%= @thread["topics_id"]%></h1>
 	<h1>this is the title<%= @thread["title"]%></h1>
@@ -8,37 +53,5 @@
 	<p>this is the username<%= @thread["username"]%></p>
 	<p>this is the votes<%= @thread["votes"]%><p>
 </div>
-</section>
-
-<section>
-	<form class="comment" action="/threads/<%= @thread_id %>" method="post">
-		<div class="input-row">
-			<label for="msg">Msg: </label>
-			<input type="text" name="msg" />
-		</div>
-		<div class="input-row">
-			<label for="username">Username: </label>
-			<input type="hidden" name="username" />
-		</div>
-
-		<div class="input-row">
-		<input type="submit" value="submit" />
-		</div>	
-	</form>
-</section>	
-
-<section>
-<form class="vote" action="/threads/<%= @thread_id %>" method="post">
-	<label for="up_votes">up_votes</label>
-	<input type="hidden" name="_method" value="put"/>  
-	<input type="submit" name="up_votes" value="YES!" />
-	<input type="submit" name="up_votes" value="NO!" />
-</form>
-</section>
-
-<section class="comments">
-<% @all_comments.each do |comment| %>
-	<p><%= comment["msg"] %></p>
-	<p><%= comment["username"] %></p>
-<%end%>
-</section>
+</section> -->
+</div>
