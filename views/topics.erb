@@ -1,0 +1,9 @@
+<!-- takes you to a specific topic and lists all the threads in that topic -->
+<div class = "thread">
+	<h1>this is the topic<%= @thread["topics_id"]%></h1>
+	<h1>this is the title<%= @thread["title"]%></h1>
+	this is the message <%= @rendered_thread_msg %>
+	<p>this is the username<%= @thread["username"]%></p>
+	<p>this is the votes<%= @thread["votes"]%><p>
+</div>
+</section>

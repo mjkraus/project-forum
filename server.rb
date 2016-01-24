@@ -73,13 +73,11 @@ module Forum
       login_name = params[:login_name]
       login_password = params[:login_password]
 
-      @user = db.exec_params("SELECT * FROM users WHERE login_name = $1", [login_name]).first
+      @user = db.exec_params("SELECT * FROM users WHERE login_name = $1",[login_name]).first
         if @user
           if BCrypt::Password.new(@user["login_password_digest"]) == login_password
             session["user_id"] = @user["id"]
-            # session[:return_to] ||= request.referer
-            # binding.pry
-            redirect session[:return_to]
+            redirect "/"
           else
             @error = "Invalid Password"
             erb :login
@@ -103,14 +101,6 @@ module Forum
       erb :index
     end
 
-    # get '/' do
-    #   db = database_connection
-
-    #   @topic_nav_bar = db.exec("SELECT * FROM topics").to_a
-
-    #   erb :layout
-    # end
-
   	get '/create' do
       db = database_connection
       if session["user_id"]
@@ -118,7 +108,6 @@ module Forum
       @topics = db.exec("SELECT * FROM topics").to_a
       erb :create
       else
-        session[:redirect_to] = "/create"
         redirect "/login"
       end
     end
@@ -126,17 +115,17 @@ module Forum
    post '/create' do
         title = params["title"]
         msg = params["msg"]
-        # username = session["user_id"] 
-        username = current_user['login_name'] #IS THIS OK? 
+        username = current_user['login_name']
         topics_id = params["topics_id"].to_i
 
         db = database_connection
+        # binding.pry
         
         new_thread = db.exec_params(
-              "INSERT INTO threads (title, msg, username,topics_id, votes) VALUES ($1, $2, $3, $4, $5)",
+              "INSERT INTO threads (title, msg, username, topics_id, votes) VALUES ($1, $2, $3, $4, $5)",
               [title, msg, username,topics_id,0])
 
-        # @new_thread_submitted = true need to add an if statement for thread creation
+        @new_thread_submitted = true 
 
         erb :create
     end

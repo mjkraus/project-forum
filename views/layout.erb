@@ -15,7 +15,7 @@
 <div class="header">
 <div class="container">
   <div class="row">
-    <div class="offset-by-three six columns"><a href='/'><h1>FRINGLY</h1></a></div>
+    <div class="offset-by-three six columns"><a href='/'><h1>FRINGELY</h1></a></div>
     <div class="three columns">How is your fringe today? <strong><%=current_user['login_name']%></strong>
     	<a class='button' href="/login">Login</a> <a class='button' href="/logout">Logout</a>
     </div>
@@ -28,7 +28,7 @@
 	<div class="offset-by-one ten columns">
 	<ul class="main_navigation">
 	  <% make_navigation.each do |topic|%>
-	  <li><a href="/topic/<%="#{topic['id']}"%>"><%="#{topic['name']}"%></a></li>
+	  <li><a href="/topics/<%="#{topic['id']}"%>"><%="#{topic['name']}"%></a></li>
 	  <% end %>
 	</ul>
 	</div>	
@@ -42,9 +42,9 @@
 <div class="four columns">
 <!-- Pencil by Tony Gines from the Noun Project -->
 <!-- Heart by libberry from the Noun Project -->
-<a class="button" href="/create">Create a post</a>	
+<a class="button" href="/create">Create a post</a>
+<img src="images/noun_130904.png"/>	
 </div>
 </div>
-<img src="../images/noun_130904.png" alt=""/>
 </body>
 </html>
