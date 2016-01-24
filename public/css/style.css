@@ -38,6 +38,7 @@ div.header{
 	text-align: center;
 	border-bottom: 1px solid #eee;
 }
+
 ul.main_navigation {
 /*  float: right;*/
   margin: 0 auto;
@@ -65,6 +66,9 @@ ul.main_navigation a {
   /*puts padding around each a tag otherwise, too close together*/
   padding: 10px; 
   display: inline-block;
+}
+.four.columns.createapost{
+	text-align: center;
 }
 
 .votes_main img{
@@ -146,5 +150,6 @@ form.vote{
 	color: black;
 
 }
+
 
 

@@ -49,19 +49,24 @@ module Forum
 
 
       # WHAT IS RETURNING ID?
+      login_name_test=db.exec_params("SELECT users.login_name FROM users WHERE login_name = $1", [login_name]).to_a
 
-      # if db.exec("SELECT * from users WHERE login_name = $1", [login_name]).to_a ==[] means there is no result
-      users = db.exec_params("INSERT INTO users (login_name, login_password_digest) VALUES ($1, $2) RETURNING id", [login_name, encrypted_password]);
-      # else
+      if login_name_test == []
+        users = db.exec_params("INSERT INTO users (login_name, login_password_digest) VALUES ($1, $2) RETURNING id", [login_name, encrypted_password]);
+        session["user_id"]=users.first["id"]
+        redirect "/"
+      else
+        @error_signup = "User Already Exists"
+          erb :signup
+      end
       #say that it already exists.
-
+      # session["user_id"]=users.first["id"]
       #.first is techincally [0]
       #we are tagging the user with their ID. NOW they are logged in.
       #log out by dropping the session OR setting user_id to nothing
-      session["user_id"]=users.first["id"]
       # might need a .to_i
 
-      erb :signup_success
+      # erb :signup_success
     end
 
     get '/login' do

@@ -50,22 +50,21 @@ VALUES
   ('Styling Tricks'),
   ('Inspiration'),
   ('DIY Bangs'),
-  ('Ugh oh!'),
-  ('Fake It');        
+  ('Ugh oh!');        
 
 -- create threads  
 INSERT INTO threads
   (title, msg, username, votes, topics_id)
 VALUES
   ('Need your help!','#HELLO#', 'sarah', 1000, 4),
-  ('These are so perfect','*bongos*', 'hannah', 20, 7),
+  ('These are so perfect','*bongos*', 'hannah', 20, 6),
   ('Any suggestions?','*bongos*', 'molly', 10, 5),
   ('Need your help!','### An h3 header ### * carrots * celery * lentils', 'tanner', 100, 1),
   ('These are so perfect','*bongos*', 'sam', 3, 3),
   ('Any suggestions?','*bongos*', 'jessica', 25, 6),
   ('Need your help!','### An h3 header ### * carrots * celery * lentils', 'kayla', 33, 2),
   ('These are so perfect','*bongos*', 'jean', 11, 1),
-  ('Any suggestions?','*bongos*', 'emily', 67, 7);
+  ('Any suggestions?','*bongos*', 'emily', 67, 6);
 
 -- create comments
 INSERT INTO comments
