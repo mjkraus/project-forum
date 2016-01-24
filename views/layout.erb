@@ -11,22 +11,45 @@
   	<link href="/css/skeleton.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
 <div class="header">
-<div class="row">
-<div class="offset-by-three six columns"><h1>FRINGLY</h1></div>
-    <div class="three columns">How is your fringe? <strong><%=current_user['login_name']%></strong></div>
+<div class="container">
+  <div class="row">
+    <div class="offset-by-three six columns"><h1>FRINGLY</h1></div>
+    <div class="three columns">How is your fringe today? <strong><%=current_user['login_name']%></strong>
+    	<a href="/login">Login</a> <a href="/logout">Logout</a>
+    </div>
+  </div>
 </div>
 </div>
 
-	<div class="row">
-			<div class="five columns">
-			<a href="/login">Login</a><a href="/logout">Logout</a>
-			</div>	
-		</div>
-	</div>
-	<div class="createapost">
-	<a href="/create">Create a post</a>	
-	</div>
-<%=yield%>
+<div class="container">
+  <div class="row">
+	<div class="offset-by-one ten columns">
+	<ul class="main_navigation">
+	  <% @topic_nav_bar.each do |topic| %>
+	  <li><a href="/topic/<%="#{topic['id']}"%>"><%="#{topic['name']}"%></a></li>
+	  <% end %>
+	</ul>
+	</div>	
+  </div>
+</div>
+
+<div class="container headline">
+  <div class="row">
+    <div class="eight columns">
+    <h2>Most Popular Posts</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="eight columns">
+    <%=yield%>
+  </div>
+<div class="four columns">
+<a href="/create" class="createapost" >Create a post</a>	
+</div>
+</div>
 </body>
 </html>

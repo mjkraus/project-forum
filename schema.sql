@@ -45,23 +45,27 @@ CREATE TABLE comments(
 INSERT INTO topics
   (name)
 VALUES
-  ('topic-1'),
-  ('topic-2'),
-  ('topic-3'),
-  ('topic-4'),
-  ('topic-5'),
-  ('topic-6'),
-  ('topic-7'),
-  ('topic-8'),
-  ('topic-9');        
+  ('Should I get b-b-bangs?'),
+  ('Bye Bye Bangs'),
+  ('Styling Tricks'),
+  ('Inspiration'),
+  ('DIY Bangs'),
+  ('Ugh oh!'),
+  ('Fake It');        
 
 -- create threads  
 INSERT INTO threads
   (title, msg, username, votes, topics_id)
 VALUES
-  ('Hello','### An h3 header ### * carrots * celery * lentils', 'Michael', 0, 4),
-  ('Goodbye','*bongos*', 'Hannah', 0, 8),
-  ('Something','*bongos*', 'Molly', 0, 5);
+  ('Need your help!','#HELLO#', 'sarah', 5, 4),
+  ('These are so perfect','*bongos*', 'hannah', 20, 7),
+  ('Any suggestions?','*bongos*', 'molly', 10, 5),
+  ('Need your help!','### An h3 header ### * carrots * celery * lentils', 'tanner', 40, 1),
+  ('These are so perfect','*bongos*', 'sam', 3, 3),
+  ('Any suggestions?','*bongos*', 'jessica', 25, 6),
+  ('Need your help!','### An h3 header ### * carrots * celery * lentils', 'kayla', 33, 2),
+  ('These are so perfect','*bongos*', 'jean', 11, 1),
+  ('Any suggestions?','*bongos*', 'emily', 67, 7);
 
 -- create comments
 INSERT INTO comments

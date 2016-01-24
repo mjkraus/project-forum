@@ -93,10 +93,20 @@ module Forum
     get '/' do
       db = database_connection
 
-      @popularity = db.exec("SELECT threads.title, threads.votes, topics.name FROM threads INNER JOIN topics ON threads.topics_id=topics.id ORDER BY votes DESC LIMIT 5").to_a
-
+      @popularity = db.exec("SELECT threads.title, threads.votes, topics.name FROM threads INNER JOIN topics ON threads.topics_id=topics.id ORDER BY votes DESC LIMIT 9").to_a
+      
+      @topic_nav_bar = db.exec("SELECT * FROM topics").to_a
+      
       erb :index
     end
+
+    # get '/' do
+    #   db = database_connection
+
+    #   @topic_nav_bar = db.exec("SELECT * FROM topics").to_a
+
+    #   erb :layout
+    # end
 
   	get '/create' do
       db = database_connection

@@ -3,19 +3,49 @@ h1{
 	font-weight: 700;
 }
 h2{
-	font-family: 'Cabin Condensed', sans-serif;
-	font-weight: 400;
+	font-family: 'Oswald', sans-serif;
 }
 p{
 	font-family: 'Cabin Condensed', sans-serif;
 }
 div.header{
 	text-align: center;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #eee;
 }
-/*div.greetings{
-	float: right;
+ul.main_navigation {
+/*  float: right;*/
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+/*  border-bottom: 1px solid #eee;*/
+/*  margin: 20px 0 0 0;*/
+}
+
+ul.main_navigation li {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+}
+
+ul.main_navigation a {
+/*  font-family: "Georgia";*/
+/*  font-style: italic;*/
+  color: black;
+  /*this removes the underline of the a tag*/
+  text-decoration: none;
+  display: inline-block;
+  /*puts padding around each a tag otherwise, too close together*/
+  padding: 10px; 
+  display: inline-block;
+}
+
+/*div.container.headline{
+	float: left;
 }*/
+
+/*NEED SOME TYPE OF STYLING FOR HOVERING*/
 .createapost{
 	float:right;
 }
