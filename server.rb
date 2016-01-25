@@ -186,14 +186,14 @@ module Forum
 
     def database_connection
       if ENV["RACK_ENV"] == 'production'
-        @db ||= PG.connect(
+        @@db ||= PG.connect(
             dbname: ENV["POSTGRES_DB"],
             host: ENV["POSTGRES_HOST"],
             password: ENV["POSTGRES_PASS"],
             user: ENV["POSTGRES_USER"]
             )
       else
-        @db ||= PG.connect(dbname: "project_forum_test")
+        @@db ||= PG.connect(dbname: "project_forum_test")
       end
     end
 	end
