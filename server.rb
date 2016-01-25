@@ -180,13 +180,21 @@ module Forum
         @topic_headline = db.exec("SELECT * FROM topics WHERE id = $1",[@topic_id]).first
         @topic = db.exec_params("SELECT topics.name, threads.title, threads.username, threads.votes, threads.id FROM topics INNER JOIN threads ON topics.id = threads.topics_id WHERE topics.id = #{@topic_id}").to_a
         erb :topics
-    end     
-
-    def database_connection
-      PG.connect(dbname: 'project_forum_test')
     end
 
+    private     
 
-
+    def database_connection
+      if ENV["RACK_ENV"] == 'production'
+        PG.connect(
+            dbname: ENV["POSTGRES_DB"],
+            host: ENV["POSTGRES_HOST"],
+            password: ENV["POSTGRES_PASS"],
+            user: ENV["POSTGRES_USER"]
+            )
+      else
+        PG.connect(dbname: "project_forum_test")
+      end
+    end
 	end
 end
