@@ -16,6 +16,10 @@ p{
 	margin: 0;
 /*	font-family: 'Cabin Condensed', sans-serif;*/
 }
+img{
+	max-width: 497px;
+}
+
 .button.button-primary, button.button-primary, 
 input[type="submit"].button-primary, input[type="reset"]
 .button-primary, input[type="button"].button-primary{
@@ -98,7 +102,7 @@ div.one-third.column.popular a{
 	border: 1px solid #eee;
 	background-color: #f4f4f4;
 	min-height: 300px;
-	font-size: 25px
+	font-size: 25px;
 }
 .twelve.columns.threads_votes img{
 	position: relative;

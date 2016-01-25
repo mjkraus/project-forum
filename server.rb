@@ -138,7 +138,7 @@ module Forum
     get '/threads/:thread_id' do
         db = database_connection
         @thread_id = params[:thread_id].to_i
-        @thread = db.exec("SELECT * FROM threads WHERE id = #{@thread_id}").first
+        @thread = db.exec("SELECT * FROM threads WHERE id = $1",[@thread_id]).first
         @all_comments=db.exec_params("SELECT * FROM comments WHERE thread_id = $1",[@thread_id]).to_a
         thread_msg = @thread["msg"]
         @rendered_thread_msg = markdown.render(thread_msg)
@@ -177,7 +177,7 @@ module Forum
     get '/topics/:topic_id' do
         db = database_connection
         @topic_id = params[:topic_id].to_i
-        @topic_headline = db.exec("SELECT * FROM topics WHERE id = #{@topic_id}").first
+        @topic_headline = db.exec("SELECT * FROM topics WHERE id = $1",[@topic_id]).first
         @topic = db.exec_params("SELECT topics.name, threads.title, threads.username, threads.votes, threads.id FROM topics INNER JOIN threads ON topics.id = threads.topics_id WHERE topics.id = #{@topic_id}").to_a
         erb :topics
     end     
