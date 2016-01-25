@@ -11,10 +11,10 @@ else
 	conn = PG.connect(dbname: "project_forum_test")
 end
 
-conn.exec("DROP TABLE IF EXISTS users")
-conn.exec("DROP TABLE IF EXISTS topics")
-conn.exec("DROP TABLE IF EXISTS threads")
-conn.exec("DROP TABLE IF EXISTS comments")
+conn.exec("DROP TABLE IF EXISTS users CASCADE")
+conn.exec("DROP TABLE IF EXISTS topics CASCADE")
+conn.exec("DROP TABLE IF EXISTS threads CASCADE")
+conn.exec("DROP TABLE IF EXISTS comments CASCADE")
 
 conn.exec("CREATE TABLE users(
     id SERIAL PRIMARY KEY, 
@@ -48,17 +48,16 @@ conn.exec("CREATE TABLE comments(
 
 
 conn.exec("INSERT INTO topics (name) VALUES (
-    'Should I get b-b-bangs?',
-    'Bye Bye Bangs',
-    'Styling Tricks',
-    'Inspiration',
-    'DIY Bangs',
-    'Uh oh!' 
-  )"
+    'Should I get b-b-bangs?'),
+    ('Bye Bye Bangs'),
+    ('Styling Tricks'),
+    ('Inspiration'),
+    ('DIY Bangs'),
+    ('Uh oh!')"
 )
 
 conn.exec("INSERT INTO threads (title, msg, username, votes, topics_id) VALUES (
-    ('My fringe is in my eyes','#HELLO Im trying to grow out my bangs, but they are at that length where they are always in my eyes. **HELP!** Any ideas? ![me](https://s-media-cache-ak0.pinimg.com/736x/31/57/64/315764d91a5e819c0e5eb6f0772417b1.jpg)', 'emily', 100, 2),
+    'My fringe is in my eyes','#HELLO Im trying to grow out my bangs, but they are at that length where they are always in my eyes. **HELP!** Any ideas? ![me](https://s-media-cache-ak0.pinimg.com/736x/31/57/64/315764d91a5e819c0e5eb6f0772417b1.jpg)', 'emily', 100, 2),
     ('These are so perfect','I need to cut my bangs **IMMEDIATELY** ![inspiration](http://97.74.65.162/wp-content/uploads-c/2011/11/BANG-BOOM-POW-3.jpg)', 'hannah', 20, 4),
     ('I need your opinion','Hello! Im growing out my bangs and worried about how they will turn out. So I took a photo at home beforehand.![opinion](http://upload.enewsworld.net/News/Contents/20140408/70012029.jpg)', 'sarah', 1000, 2),
     ('What do you think?','Should I get bangs? Im worried about the upkeep. ![me](https://ak-hdl.buzzfed.com/static/2015-10/26/10/enhanced/webdr07/grid-cell-27450-1445871496-6.jpg)', 'emily', 105, 1),
