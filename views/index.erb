@@ -1,47 +1,41 @@
-
-<!--  <div class="container" -->
-  <div class="row">
-    <div class="eight columns">
+<div class="row">
+  <div class="eight columns">
     <span><h2>Most Popular Posts</h2></span>
-    </div>
   </div>
+</div>
 
 <% @popularity.each_slice(3) do |popular1,popular2,popular3| %>
-<!-- <div class ="container"> -->
-	<div class="row popular">
+  <div class="row popular">
+    <div class="one-third column popular">
 
-<!-- 		<div class="four columns"> -->
-		<div class="one-third column popular">
-		<p><%= "#{popular1['name']}" %></p>
-		<a href="/threads/<%="#{popular1['id']}"%>"><%= "#{popular1['title']}" %></a>
+	  <p><%= "#{popular1['name']}" %></p>
+	    <a href="/threads/<%="#{popular1['id']}"%>"><%= "#{popular1['title']}" %></a>
 		<p><%= "posted by "+"#{popular1['username']}" %></p>
 		<div class="votes_main"><img src="images/noun_130904.png"/></div>
 		<p><%= "#{popular1['votes']}" +" likes" %></p>
-		</div>
+		<!-- is this missing an end? -->
+	</div>
 
-<!-- 		<div class="four columns"> -->
-		<div class="one-third column popular">
-			<% if popular2 %>
-		<p><%= "#{popular2['name']}" %></p>
+	<div class="one-third column popular">
+	  <% if popular2 %>
+	    <p><%= "#{popular2['name']}" %></p>
 		<a href="/threads/<%="#{popular2['id']}"%>"><%= "#{popular2['title']}" %></a>
 		<p><%= "posted by "+"#{popular2['username']}" %></p>
 		<div class="votes_main"><img src="images/noun_130904.png"/></div>
 		<p><%= "#{popular2['votes']}" +" likes" %></p>
-		<% end %>
-		</div>
+	  <% end %>
+	</div>
 
-<!-- 		<div class="four columns"> -->
-		<div class="one-third column popular">
-			<% if popular3 %>
-		<p><%= "#{popular3['name']}" %></p>
+	<div class="one-third column popular">
+	  <% if popular3 %>
+	    <p><%= "#{popular3['name']}" %></p>
 		<a href="/threads/<%="#{popular3['id']}"%>"><%= "#{popular3['title']}" %></a>
 		<p><%= "posted by "+"#{popular3['username']}" %></p>
 		<div class="votes_main"><img src="images/noun_130904.png"/></div>
 		<p><%= "#{popular3['votes']}" +" likes" %></p>
-		<% end %>
-		</div>
+	  <% end %>
 	</div>
-<!-- 	</div> -->
+  
+  </div> 
 <%end%>
-<!-- </div> -->
 

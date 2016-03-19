@@ -1,20 +1,20 @@
 <div class="container">
-<h1>Login</h1>
+  <h1>Login</h1>
 
-<% if @error %><%= @error %><% end %>
+  <% if @error %><%= @error %><% end %>
 
-<form action="/login" method="post" >
-	<div class="row">
-		<div class="six columns">
+  <form action="/login" method="post" >
+    <div class="row">
+	  <div class="six columns">
 		<label for="login_name">Username</label>
 		<input class="u-full-width" type="text" placeholder="Your username" name="login_name">
-	</div>
-		<div class="six columns">
-		<label for="login_password">Password</label>
-		<input class="u-full-width" type="password" placeholder="Your password" name="login_password">
-	</div>
+	  </div>
+	    <div class="six columns">
+		  <label for="login_password">Password</label>
+		  <input class="u-full-width" type="password" placeholder="Your password" name="login_password">
+	    </div>
 	</div>
 
 	<input class="button-primary" type="submit" value="Login">
-</form>
+  </form>
 </div>

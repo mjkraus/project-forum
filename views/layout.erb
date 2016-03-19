@@ -6,45 +6,48 @@
 	<title>Forum for All</title>
 	<link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:400,600' rel='stylesheet' type='text/css'>
-  	<link href="/css/normalize.css" rel="stylesheet" type="text/css">
-  	<link href="/css/skeleton.css" rel="stylesheet" type="text/css">
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/css/skeleton.css" rel="stylesheet" type="text/css">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
-<body>
 
+<body>
 <div class="header">
-<div class="container">
-  <div class="row">
-    <div class="offset-by-four four columns">
-    <h1><a href="/" style="color:black;text-decoration: none;margin:0;">FRINGELY</a></h1>
-    </div>
+  <div class="container">
     <div class="row">
-    <div class="four columns"><p>How is your fringe today?</p>
-    <strong><%=current_user['login_name']%></strong>
-    </div>
+      <div class="offset-by-four four columns">
+        <h1><a href="/" style="color:black;text-decoration: none;margin:0;">FRINGELY</a></h1>
+      </div>
+
     <div class="row">
-    <div class="four columns">
-    <%if current_user == {} %>
-    	<a class='button' href="/login">Login</a> <a class='button' href="/signup">Sign Up</a>
-    <%else%>  
-      <a class='button' href="/logout">Logout</a>
-    <%end%>
-     </div> 
-    </div>
+      <div class="four columns"><p>How is your fringe today?</p>
+        <strong><%=current_user['login_name']%></strong>
+      </div>
+
+    <div class="row">
+      <div class="four columns">
+        <%if current_user == {} %>
+    	    <a class='button' href="/login">Login</a> <a class='button' href="/signup">Sign Up</a>
+        <%else%>  
+          <a class='button' href="/logout">Logout</a>
+        <%end%>
+      </div> 
+     </div>
+    <!-- CHECK THESE DIVS -->
+      </div>
     </div>
   </div>
 </div>
-</div>
 
 <div class="container">
   <div class="row">
-	<div class="offset-by-one ten columns">
-	<ul class="main_navigation">
-	  <% make_navigation.each do |topic|%>
-	  <li><a href="/topics/<%="#{topic['id']}"%>"><%="#{topic['name']}"%></a></li>
-	  <% end %>
-	</ul>
-	</div>	
+	  <div class="offset-by-one ten columns">
+	    <ul class="main_navigation">
+	      <% make_navigation.each do |topic|%>
+	        <li><a href="/topics/<%="#{topic['id']}"%>"><%="#{topic['name']}"%></a></li>
+	      <% end %>
+	    </ul>
+	  </div>	
   </div>
 </div>
 
@@ -52,12 +55,13 @@
   <div class="eight columns">
     <%=yield%>
   </div>
-<div class="four columns createapost">
+
+  <div class="four columns createapost">
 <!-- Pencil by Tony Gines from the Noun Project -->
 <!-- Heart by libberry from the Noun Project -->
 <!-- <img src="images/noun_125556_cc.png"/> -->
-<a class="button" href="/create">Create a post</a>	
-</div>
+    <a class="button" href="/create">Create a post</a>	
+  </div>
 </div>
 </body>
 </html>
