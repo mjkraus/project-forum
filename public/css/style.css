@@ -1,55 +1,53 @@
 h1{
-	font-family: 'Oswald', sans-serif;
-	font-weight: 700;
-	text-transform: uppercase;	
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;	
 }
 
 h2{
-	font-family: 'Oswald', sans-serif;
-	text-transform: uppercase;
-	margin: 0;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  margin: 0;
 }
+
 p{
-	font-family: "Adobe Garamond Pro", Garamond, Baskerville, serif;
-	font-size: 18px;
-	font-style: italic;
-	margin: 0;
-/*	font-family: 'Cabin Condensed', sans-serif;*/
+  font-family: "Adobe Garamond Pro", Garamond, Baskerville, serif;
+  font-size: 18px;
+  font-style: italic;
+  margin: 0;
 }
+
 img{
-	max-width: 497px;
+  max-width: 497px;
 }
 
 .button.button-primary, button.button-primary, 
 input[type="submit"].button-primary, input[type="reset"]
 .button-primary, input[type="button"].button-primary{
-	background-color: black;
-	color: white;
-	border-color: black;
-	font-family: 'Cabin Condensed', sans-serif;
-	text-align: center;
+  background-color: black;
+  color: white;
+  border-color: black;
+  font-family: 'Cabin Condensed', sans-serif;
+  text-align: center;
 } 
 
 a.button{
-	background-color: black;
-	color: white;
-	font-family: 'Cabin Condensed', sans-serif;
-	text-align: center;
+  background-color: black;
+  color: white;
+  font-family: 'Cabin Condensed', sans-serif;
+  text-align: center;
 
 }
 
 div.header{
-	text-align: center;
-	border-bottom: 1px solid #eee;
+  text-align: center;
+  border-bottom: 1px solid #eee;
 }
 
 ul.main_navigation {
-/*  float: right;*/
   margin: 0 auto;
   padding: 0;
   text-align: center;
-/*  border-bottom: 1px solid #eee;*/
-/*  margin: 20px 0 0 0;*/
 }
 
 ul.main_navigation li {
@@ -61,33 +59,30 @@ ul.main_navigation li {
 }
 
 ul.main_navigation a {
-/*  font-family: "Georgia";*/
-/*  font-style: italic;*/
   color: black;
-  /*this removes the underline of the a tag*/
   text-decoration: none;
   display: inline-block;
-  /*puts padding around each a tag otherwise, too close together*/
   padding: 10px; 
   display: inline-block;
 }
+
 .four.columns.createapost{
-	text-align: center;
+  text-align: center;
 }
 
 .votes_main img{
-	position: relative;
-	height: 30px;
+  position: relative;
+  height: 30px;
 }
-
 
 div.one-third.column.popular{
-	border: 1px solid #eee;
-	text-align: center;
-	margin-bottom: 20px;
-	background-color: #f4f4f4;
-	max-height: 300px;
+  border: 1px solid #eee;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #f4f4f4;
+  max-height: 300px;
 }
+
 div.one-third.column.popular a{
   text-decoration: none;
   color: black;
@@ -95,64 +90,67 @@ div.one-third.column.popular a{
 
 /*---threads---*/
 .twelve.columns.threads_header{
-	background-color: black;
-	color: white;
+  background-color: black;
+  color: white;
 }
-.twelve.columns.threads_msg{
-	border: 1px solid #eee;
-	background-color: #f4f4f4;
-	min-height: 300px;
-	font-size: 25px;
-}
-.twelve.columns.threads_votes img{
-	position: relative;
-	height: 30px;
-}
-div.twelve.columns.threads_votes{
-	display: inline-block;
-	position: relative;
-	font-family: "Adobe Garamond Pro", Garamond, Baskerville, serif;
-	font-size: 25px;
-	font-style: italic;
-	margin: 0;
 
+.twelve.columns.threads_msg{
+  border: 1px solid #eee;
+  background-color: #f4f4f4;
+  min-height: 300px;
+  font-size: 25px;
 }
+
+.twelve.columns.threads_votes img{
+  position: relative;
+  height: 30px;
+}
+
+div.twelve.columns.threads_votes{
+  display: inline-block;
+  position: relative;
+  font-family: "Adobe Garamond Pro", Garamond, Baskerville, serif;
+  font-size: 25px;
+  font-style: italic;
+  margin: 0;
+}
+
 form.vote{
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /*---comments displayed with threads---*/
 .twelve.columns.comments_display{
-	border: 1px solid #eee;
-	background-color: #f4f4f4;
-	font-size: 25px;
-	margin: 10px;
-	min-height: 50px;
+  border: 1px solid #eee;
+  background-color: #f4f4f4;
+  font-size: 25px;
+  margin: 10px;
+  min-height: 50px;
 }
 /*---topics.erb displaying the threads of those topics---*/
 .four.columns.threads_of_topics img{
-	position: relative;
-	height: 30px;
-
+  position: relative;
+  height: 30px;
 }
+
 .row.threads_of_topics{
-	margin-bottom: 10px;
-	min-height: 30px;
-	border: 1px solid #eee;
-	background-color: #f4f4f4;
-	font-family: "Adobe Garamond Pro", Garamond, Baskerville, serif;
-	font-size: 18px;
-	font-style: italic;
+  margin-bottom: 10px;
+  min-height: 30px;
+  border: 1px solid #eee;
+  background-color: #f4f4f4;
+  font-family: "Adobe Garamond Pro", Garamond, Baskerville, serif;
+  font-size: 18px;
+  font-style: italic;
 }
 
 .eight.columns.threads_of_topics{
-	text-align: center;
-	background-color: #f4f4f4;
+  text-align: center;
+  background-color: #f4f4f4;
 }
-.eight.columns.threads_of_topics a{
-	text-decoration: none;
-	color: black;
 
+.eight.columns.threads_of_topics a{
+  text-decoration: none;
+  color: black;
 }
 
 
