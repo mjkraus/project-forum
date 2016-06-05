@@ -153,5 +153,31 @@ form.vote{
   color: black;
 }
 
+.heartcontainer{
+/*	width: 150px;
+	height: 150px;*/
+/*	position: absolute;*/
+/*	border: 1px solid black;*/
+	padding: none;
+	margin: none;
+	/*centers the button in the box*/
+
+}
+
+.heart{
+/*	border: none;
+	outline: none;*/
+	/*removes styling from the border*/
+/*	border-radius: 50%;*/
+/*	color: #222;*/
+	font-size: 50px;
+	padding: none;
+	margin: none;	
+}
+
+.heart:hover{
+	color: red;
+}
+
 
 
